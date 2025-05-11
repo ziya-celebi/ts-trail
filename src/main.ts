@@ -1,27 +1,35 @@
+const display = document.createElement("button");
+
+document.body.appendChild(display);
+
+const plus = document.createElement("button");
+
+document.body.appendChild(plus);
+
+const op = String(prompt("Enter an operation +, -, *, /, exit"));
+const a = Number(prompt("Enter your first number"));
+const b = Number(prompt("Enter your second number"));
 let sum: number = 0;
-const op: string | null = prompt("Enter an operation +, -, *, /, exit");
-const a: string | null = prompt("Enter your first number");
-const b: string | null = prompt("Enter your second number");
 
-const numA = Number(a);
-const numB = Number(b);
-const oP = String(op);
-
-switch (oP) {
+switch (op) {
   case "+":
-    sum = numA + numB;
-    console.log(sum);
+    sum = a + b;
     break;
   case "-":
-    sum = numA - numB;
-    console.log(sum);
+    sum = a - b;
+    display.textContent = String(sum);
     break;
   case "*":
-    sum = numA * numB;
-    console.log(sum);
+    sum = a * b;
+    display.textContent = String(sum);
     break;
   case "/":
-    sum = numA / numB;
-    console.log(sum);
+    sum = a / b;
+    display.textContent = String(sum);
     break;
 }
+
+plus.addEventListener("click", () => {
+  sum = a + b; // Adds the numbers again when clicked
+  display.textContent = String(sum); // Shows the result on the display button
+});
